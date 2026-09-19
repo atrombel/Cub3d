@@ -32,7 +32,8 @@ SRCS = $(addprefix $(SRC_DIR)/, $(CFILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(CFILES:.c=.o))
 
 
-ATROMBEL_CFILES =
+ATROMBEL_CFILES = arguments_check.c parser_main.c parser_map_file_type_check.c print_error.c
+
 
 ATROMBEL_OBJS = $(addprefix $(ATROMBEL_OBJ_DIR)/, $(ATROMBEL_CFILES:.c=.o))
 ATROMBEL_NAME = atrombel
@@ -45,7 +46,7 @@ CGASSER_NAME = cgasser
 
 
 LIBFT_DIR = libft
-LIBFT_INC_DIR = $(LIBFT_DIR)/include
+LIBFT_INC_DIR = $(LIBFT_DIR)/
 LIBFT = $(LIBFT_DIR)/libft.a
 
 HFILES = cub3D.h atrombel.h cgasser.h
@@ -58,6 +59,7 @@ $(NAME): $(OBJS) $(ATROMBEL_OBJS) $(CGASSER_OBJS) $(LIBFT)
 	$(CC) $(CFLAGS) $(OBJS) $(ATROMBEL_OBJS) $(CGASSER_OBJS) $(LIBFT) -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
+	mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) -I $(INC_DIR) -I $(LIBFT_INC_DIR) -c $< -o $@
 
 $(OBJ_DIR):

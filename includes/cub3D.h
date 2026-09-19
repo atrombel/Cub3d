@@ -17,5 +17,18 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <sys/time.h>
+# include "libft.h"
+# include <stdio.h>
+
+typedef struct s_map
+{
+	int	map_fd;
+}	t_map;
+
+typedef struct s_data
+{
+	t_map map;
+}	t_data;
+
 
 #endif

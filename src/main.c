@@ -11,9 +11,16 @@
 /* ************************************************************************** */
 
 #include "cub3D.h"
+#include "atrombel.h"
 
-int	main(void)
+int	main(int argc, char **argv)
 {
-	write(1, "cub3D the beginning\n", 20);
+	t_data data;
+	if (arguments_nbr_check(argc) == 1)
+		return (1);
+	ft_bzero(&data, sizeof(t_data));
+	if (parser_main(&data, argv[1]) == 1)
+		return (1);
+	printf("yeahbruh\n");
 	return (0);
 }

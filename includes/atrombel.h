@@ -10,4 +10,16 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#ifndef ATROMBEL_H
+# define ATROMBEL_H
 
+//parsing
+int		arguments_nbr_check(int argc);
+int		parser_main(t_data *data, char *path_to_map);
+int		parser_map_file_type_check(char *path_to_map);
+
+//error msg
+void	print_error(char *msg);
+
+
+#endif
