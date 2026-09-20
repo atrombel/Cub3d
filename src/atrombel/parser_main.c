@@ -17,11 +17,10 @@ int	parser_main(t_data *data, char *path_to_map)
 {
 	if (parser_map_file_type_check(path_to_map))
 		return (1);
-	(void)data;
-	// if (parser_map_open_check(data))
-	// 	return (1);
-	// if (parser_map_identifiers_check(data))
-	// 	return (1);
+	if (parser_map_open_check(path_to_map, data))
+		return (1);
+	if (parser_map_identifiers_check(data))
+		return (1);
 	// if (parser_map_elements_check(data))
 	// 	return (1);
 	// if (parser_map_size_check(data))

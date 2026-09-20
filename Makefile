@@ -32,7 +32,8 @@ SRCS = $(addprefix $(SRC_DIR)/, $(CFILES))
 OBJS = $(addprefix $(OBJ_DIR)/, $(CFILES:.c=.o))
 
 
-ATROMBEL_CFILES = arguments_check.c parser_main.c parser_map_file_type_check.c print_error.c
+ATROMBEL_CFILES = arguments_check.c parser_main.c parser_map_file_type_check.c print_error.c\
+				parser_map_open_check.c parser_map_identifiers_check.c
 
 
 ATROMBEL_OBJS = $(addprefix $(ATROMBEL_OBJ_DIR)/, $(ATROMBEL_CFILES:.c=.o))

@@ -27,6 +27,9 @@ int	ft_reverse_strncmp_cub_verif(char *s1, char *s2)
 int	parser_map_file_type_check(char *path_to_map)
 {
 	if (ft_reverse_strncmp_cub_verif(path_to_map, ".cub") != 0)
+	{
+		print_error("file format invalid, must be .cub\n");
 		return (1);
+	}
 	return (0);
 }
