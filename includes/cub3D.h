@@ -19,21 +19,24 @@
 # include "libft.h"
 # include <stdio.h>
 # include <fcntl.h>
+# include <stdbool.h>
 
+//attention to free les char * relier au no ea we so
 typedef struct s_identifier
 {
 	char	*no_path;
-	int		no_check_status;
+	bool	no_check_status;
 	char	*so_path;
-	int		so_check_status;
+	bool	so_check_status;
 	char	*we_path;
-	int		we_check_status;
+	bool	we_check_status;
 	char	*ea_path;
-	int		ea_check_status;
+	bool	ea_check_status;
 	int		f[3];
 	int		f_check_status;
 	int		c[3];
 	int		c_check_status;
+	bool	all_id_check_status;
 } t_identifier;
 
 typedef struct s_map
@@ -43,7 +46,7 @@ typedef struct s_map
 
 typedef struct s_data
 {
-	t_identifier	identifier;
+	t_identifier	id;
 	t_map			map;
 }	t_data;
 
