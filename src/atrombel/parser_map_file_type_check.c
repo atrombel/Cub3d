@@ -4,22 +4,19 @@
 
 int	ft_reverse_strncmp_cub_verif(char *s1, char *s2)
 {
-	int	i;
-	int	j;
-	int	n;
+	size_t	i;
+	int		j;
 
-	n = 4;
 	j = 3;
-	i = ft_strlen(s1) - 1;
-	while (n > 0 && i >= 0 && j >= 0)
+	i = ft_strlen(s1);
+	while (i > 0 && j >= 0)
 	{
-		if (s1[i] != s2[j])
-			return ((unsigned char)s1[i] - (unsigned char)s2[j]);
-		n--;
+		if (s1[i - 1] != s2[j])
+			return ((unsigned char)s1[i - 1] - (unsigned char)s2[j]);
 		i--;
 		j--;
 	}
-	if (n == 0)
+	if (j == -1)
 		return (0);
 	return (1);
 }

@@ -1,8 +1,6 @@
 
-
 #include "cub3D.h"
 #include "atrombel.h"
-
 
 int	arguments_nbr_check(int argc)
 {

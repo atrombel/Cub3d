@@ -13,6 +13,9 @@
 #include "cub3D.h"
 #include "atrombel.h"
 
+//parser_map_file_type_check check if map file is .cub or not
+//parser_map_open_check use fonction "open" to check wether the file is valid,if valid it stores it in the int map_fd;
+//parser_map_identifiers_check "NO SO WE EA and color F and C" if ok in the file
 int	parser_main(t_data *data, char *path_to_map)
 {
 	if (parser_map_file_type_check(path_to_map))

@@ -21,7 +21,8 @@
 # include <fcntl.h>
 # include <stdbool.h>
 
-//attention to free les char * relier au no ea we so
+//attention to free les char * liked to " au no ea we so "
+// est ce que je dois stocker les fd des path ?
 typedef struct s_identifier
 {
 	char	*no_path;
@@ -36,12 +37,12 @@ typedef struct s_identifier
 	int		f_check_status;
 	int		c[3];
 	int		c_check_status;
-	bool	all_id_check_status;
 } t_identifier;
 
 typedef struct s_map
 {
-	int		map_fd;
+	bool	map_started;
+	int		map_fd;// TO CLOSE
 }	t_map;
 
 typedef struct s_data

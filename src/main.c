@@ -16,11 +16,14 @@
 int	main(int argc, char **argv)
 {
 	t_data data;
+
 	if (arguments_nbr_check(argc) == 1)
 		return (1);
 	ft_bzero(&data, sizeof(t_data));
 	if (parser_main(&data, argv[1]) == 1)
 		return (1);
-	printf("yeahbruh\n");
+
+	printf("yeahbruh\n");// to remove
+
 	return (0);
 }
