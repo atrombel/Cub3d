@@ -29,10 +29,12 @@ int	parser_map_check(t_data *data)
 
 	while ((current_line = get_next_line(data->map.map_fd)))
 	{
-		if (!current_line || (data->map.ismap_stored != true))
+		printf("current_line = %s", current_line);
+		if (!current_line && (data->map.ismap_stored == true))
 			return (0);
 		if (data->map.map_started == true)
 		{
+
 			if (map_storing(current_line, data) == false)
 				return (1);
 			if (data->map.map_ended == true)

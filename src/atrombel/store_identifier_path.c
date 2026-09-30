@@ -10,7 +10,11 @@
 //mode 5 = C
 int	store_identifier_path(char *current_line, int i, t_data *data, int mode)
 {
+		printf("1 i = %d\n", i);
+
 	i = space_newline_skipper(current_line + i, i);
+		printf("2 i = %d\n", i);
+
 	if (current_line[i] == '\0')
 	{
 		print_error("at least one texture path is absent\n");

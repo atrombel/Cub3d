@@ -107,9 +107,18 @@ int	id_storage_path(char *current_line, t_data *data, int i, int mode)
 {
 	int	j;
 
+	printf("i = %d\n", i);
+	printf("current_line[i] = %c\n", current_line[i]);
+	printf("current_line[i -- ] = %c\n", current_line[i -3]);
+
+	j = space_newline_skipper(current_line, i);
+
 	j = find_next_whitespace(current_line, i);
+	printf("current_line[j] = %c\n", current_line[j]);
+
 	j = space_newline_skipper(current_line, j);
-	if (current_line[j] != '\0')
+	printf("current_line[j] = %c\n", current_line[j]);
+	if (current_line[j] != '\0' &&  current_line[j] != '\n')
 	{
 		print_error("Invalid characters after texture path\n");
 		return (1);
@@ -122,5 +131,6 @@ int	id_storage_path(char *current_line, t_data *data, int i, int mode)
 		if (mode == 4 || mode == 5)
 			return (color_storage_path_utils(current_line, data, i, mode));
 	}
+
 	return (1);
 }
