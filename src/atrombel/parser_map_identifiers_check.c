@@ -22,15 +22,23 @@ int space_newline_skipper(char *current_line, int i)
 	return (i);
 }
 
-int	parser_map_identifiers_check(t_data *data)
+int	parser_map_check(t_data *data)
 {
 	char	*current_line;
 	int		i;
 
 	while ((current_line = get_next_line(data->map.map_fd)))
 	{
-		if (data->map.map_started == true)// to implementa
-			return (0);// changer le return 0 par une fonction qui stocke la map dans un cahr ** puis continue;
+		if (!current_line || (data->map.ismap_stored != true))
+			return (0);
+		if (data->map.map_started == true)
+		{
+			if (map_storing(current_line, data) == false)
+				return (1);
+			if (data->map.map_ended == true)
+				return (0);
+			continue ;
+		}
 		i = 0;
 		i = space_newline_skipper(current_line, i);
 		if (word_check(current_line, i, data))

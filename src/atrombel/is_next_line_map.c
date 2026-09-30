@@ -13,7 +13,10 @@ bool	is_next_line_map(char *current_line, t_data *data)
 		i++;
 	if ((current_line[i] == '\0' || current_line[i] == '\n'))
 	{
-		//copy first line of map dans un char**;
+		data->map.map_save[data->map.line] = ft_strdup(current_line);
+		if (!data->map.map_save)
+			return (false);
+		data->map.line = 1;
 		data->map.map_started = true;
 		return (true);
 	}

@@ -39,9 +39,14 @@ typedef struct s_identifier
 	int		c_check_status;
 } t_identifier;
 
+// line is the nuber of line from line 0 to line x of the mab
 typedef struct s_map
 {
+	int		line;
+	char	**map_save;
 	bool	map_started;
+	bool	map_ended;
+	bool	ismap_stored;
 	int		map_fd;// TO CLOSE
 }	t_map;
 

@@ -19,7 +19,7 @@ int	main(int argc, char **argv)
 
 	if (arguments_nbr_check(argc) == 1)
 		return (1);
-	ft_bzero(&data, sizeof(t_data));
+	ft_init(&data);
 	if (parser_main(&data, argv[1]) == 1)
 		return (1);
 

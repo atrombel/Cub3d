@@ -35,7 +35,7 @@ OBJS = $(addprefix $(OBJ_DIR)/, $(CFILES:.c=.o))
 ATROMBEL_CFILES = arguments_check.c parser_main.c parser_map_file_type_check.c print_error.c\
 				parser_map_open_check.c parser_map_identifiers_check.c identifiers_parser_utils.c \
 				free_functions.c store_identifier_path.c  parser_id_world_check.c \
-				is_next_line_map.c world_check_utils.c
+				is_next_line_map.c world_check_utils.c map_storing.c ft_init.c
 
 
 ATROMBEL_OBJS = $(addprefix $(ATROMBEL_OBJ_DIR)/, $(ATROMBEL_CFILES:.c=.o))
