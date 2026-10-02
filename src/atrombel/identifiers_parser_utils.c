@@ -55,7 +55,7 @@ int	color_storage_f(char *current_line, t_data *data, int i)
 		result = result * 10 + (current_line[i] - '0');
 		i++;
 	}
-	if (x != 2)
+	if (x != 3)
 		return (print_error_return("invalid F color\n", 1));
 	return (0);
 }
@@ -89,7 +89,7 @@ int	color_storage_c(char *current_line, t_data *data, int i)
 		result = result * 10 + (current_line[i] - '0');
 		i++;
 	}
-	if (x != 2)
+	if (x != 3)
 		return (print_error_return("invalid C color\n", 1));
 	return (0);
 }
@@ -107,17 +107,17 @@ int	id_storage_path(char *current_line, t_data *data, int i, int mode)
 {
 	int	j;
 
-	printf("i = %d\n", i);
-	printf("current_line[i] = %c\n", current_line[i]);
-	printf("current_line[i -- ] = %c\n", current_line[i -3]);
+	// printf("i = %d\n", i);
+	// printf("current_line[i] = %c\n", current_line[i]);
+	// printf("current_line[i -- ] = %c\n", current_line[i -3]);
 
 	j = space_newline_skipper(current_line, i);
 
 	j = find_next_whitespace(current_line, i);
-	printf("current_line[j] = %c\n", current_line[j]);
+	//printf("current_line[j] = %c\n", current_line[j]);
 
 	j = space_newline_skipper(current_line, j);
-	printf("current_line[j] = %c\n", current_line[j]);
+	//printf("current_line[j] = %c\n", current_line[j]);
 	if (current_line[j] != '\0' &&  current_line[j] != '\n')
 	{
 		print_error("Invalid characters after texture path\n");
@@ -129,7 +129,10 @@ int	id_storage_path(char *current_line, t_data *data, int i, int mode)
 		if (mode >= 0 && mode <= 3)
 			return (id_storage_path_utils(current_line, data, mode));
 		if (mode == 4 || mode == 5)
+		{
+			printf("color detected mode = %d\n", mode);
 			return (color_storage_path_utils(current_line, data, i, mode));
+		}
 	}
 
 	return (1);

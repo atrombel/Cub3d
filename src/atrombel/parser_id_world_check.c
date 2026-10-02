@@ -11,6 +11,9 @@ int	world_no_check(char *current_line, int i, t_data *data)
 		return (1);
 	}
 	i += 3;
+			printf("no the current_line = %s", current_line);
+		printf("0 i = %d\n", i);
+
 	if (store_identifier_path(current_line, i, data, 0) == 1)
 		return (1);
 	data->id.no_check_status = true;
@@ -78,8 +81,10 @@ int	word_check(char *current_line, int i, t_data *data)
 		return (world_c_check(current_line, i , data));
 	if (if_all_identifier_check(data) == true)
 	{
-		if (is_next_line_map(current_line, data) == true)
+		if (is_next_line_map(current_line, data) == 0)
 			return (0);
+		else
+			return (1);
 	}
 	print_error_precise("invalid identifier detected", current_line + i);
 	return (1);

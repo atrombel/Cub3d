@@ -12,15 +12,36 @@
 
 #include "cub3D.h"
 #include "atrombel.h"
-
-
 void	debug_print_data(t_data *data)
 {
-	printf("data address    : %p\n", (void *)data);
-	printf("no_path address : %p\n", (void *)data->id.no_path);
-	printf("so_path address : %p\n", (void *)data->id.so_path);
-	printf("we_path address : %p\n", (void *)data->id.we_path);
-	printf("ea_path address : %p\n", data->id.ea_path);
+	int	i;
+
+	printf("data address     : %p\n", (void *)data);
+	printf("no_path address  : %p\n", (void *)data->id.no_path);
+	printf("so_path address  : %p\n", (void *)data->id.so_path);
+	printf("we_path address  : %p\n", (void *)data->id.we_path);
+	printf("ea_path address  : %p\n", (void *)data->id.ea_path);
+
+	printf("\n--- MAP ---\n");
+	printf("map_save address : %p\n", (void *)data->map.map_save);
+	printf("line              : %d\n", data->map.line);
+	printf("map_started       : %d\n", data->map.map_started);
+	printf("map_ended         : %d\n", data->map.map_ended);
+	printf("ismap_stored      : %d\n", data->map.ismap_stored);
+	printf("map_fd            : %d\n", data->map.map_fd);
+
+	if (!data->map.map_save)
+	{
+		printf("map_save is NULL\n");
+		return ;
+	}
+	i = 0;
+	while (data->map.map_save[i])
+	{
+		printf("map_save[%d] = %s\n", i, data->map.map_save[i]);
+		i++;
+	}
+	printf("map_save[%d] = NULL\n", i);
 }
 
 int	main(int argc, char **argv)
@@ -31,8 +52,10 @@ int	main(int argc, char **argv)
 		return (1);
 	ft_init(&data);
 	if (parser_main(&data, argv[1]) == 1)
+	{
+		printf("exit error !!! ??????????");
 		return (1);
-
+	}
 	printf("yeahbruh\n");// to remove
 	debug_print_data(&data);
 

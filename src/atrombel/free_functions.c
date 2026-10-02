@@ -13,3 +13,44 @@ void	free_id(t_data *data)
 	if (data->id.ea_path)
 		free(data->id.ea_path);
 }
+
+void	ft_gnl_flush(int fd)
+{
+	char	*line;
+
+	while (1)
+	{
+		line = get_next_line(fd);
+		if (!line)
+			break ;
+		free(line);
+	}
+}
+int	parser_cleanup_error(t_data *data, char *current_line)
+{
+	if (current_line)
+		free(current_line);
+	free_id(data);
+	ft_gnl_flush(data->map.map_fd);
+	if (data->map.map_fd >= 0)
+		close(data->map.map_fd);
+	return (1);
+}
+
+void	free_map_save(t_data *data)
+{
+	int	i;
+
+	if (!data->map.map_save)
+		return ;
+	i = 0;
+	while (data->map.map_save[i])
+	{
+		free(data->map.map_save[i]);
+		i++;
+	}
+	free(data->map.map_save);
+	data->map.map_save = NULL;
+	data->map.line = 0;
+}
+

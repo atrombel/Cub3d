@@ -29,24 +29,35 @@ int	parser_map_check(t_data *data)
 
 	while ((current_line = get_next_line(data->map.map_fd)))
 	{
-		printf("current_line = %s", current_line);
-		if (!current_line && (data->map.ismap_stored == true))
-			return (0);
+		if (!current_line || (data->map.ismap_stored == true))
+		{
+				printf("debug test map XXXXXXXXXXXXXX\n");// to remove
+
+			return (ft_gnl_flush(data->map.map_fd), 0);
+		}
 		if (data->map.map_started == true)
 		{
+			if (map_storing(current_line, data) == 1)
+			{
+					printf("map stor false \n");// to remove
 
-			if (map_storing(current_line, data) == false)
-				return (1);
-			if (data->map.map_ended == true)
-				return (0);
+				return (ft_gnl_flush(data->map.map_fd), free(current_line), 1);
+			}
+			if (data->map.map_ended == 0)
+			{
+					printf("map stor ture \n");// to remove
+
+				return (ft_gnl_flush(data->map.map_fd), free(current_line), 0);
+			}
+			free(current_line);// avoir si ok
 			continue ;
 		}
 		i = 0;
 		i = space_newline_skipper(current_line, i);
 		if (word_check(current_line, i, data))
-			return (free(current_line), free_id(data), 1);
+			return (parser_cleanup_error(data, current_line), 1);
 		free(current_line);
 	}
-	printf("\033[0;32m[SIGNALISATION]yo\033[0m\n");
+					printf("pareser map check fin\n");// to remove
 	return (1);
 }

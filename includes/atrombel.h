@@ -13,7 +13,6 @@
 #ifndef ATROMBEL_H
 # define ATROMBEL_H
 
-
 //init
 void	ft_init(t_data *data);
 
@@ -32,10 +31,11 @@ int		world_f_check(char *current_line, int i, t_data *data);
 int		world_c_check(char *current_line, int i, t_data *data);
 int		store_identifier_path(char *current_line, int i, t_data *data, int mode);
 bool	if_all_identifier_check(t_data *data);
-bool	is_next_line_map(char *current_line, t_data *data);
+int		is_next_line_map(char *current_line, t_data *data);
 
-//map storing
+//map storing + parsing map
 int	map_storing(char *current_line, t_data *data);
+int	map_line_valid_chars_skipper(char *current_line, int i);
 
 //error msg
 void	print_error(char *msg);
@@ -45,6 +45,9 @@ int		print_error_return(char *msg, int value);
 
 // free functions
 void	free_id(t_data *data);
+void	ft_gnl_flush(int fd);
+int		parser_cleanup_error(t_data *data, char *current_line);
+void	free_map_save(t_data *data);
 
 
 #endif

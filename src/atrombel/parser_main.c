@@ -23,7 +23,6 @@ int	parser_main(t_data *data, char *path_to_map)
 		return (1);
 	if (parser_map_open_check(path_to_map, data))
 		return (1);
-	write(1, "xd 1", 4);
 	if (parser_map_check(data))
 		return (1);
 	//etc

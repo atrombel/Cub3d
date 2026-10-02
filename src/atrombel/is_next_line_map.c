@@ -2,7 +2,7 @@
 #include "cub3D.h"
 #include "atrombel.h"
 
-bool	is_next_line_map(char *current_line, t_data *data)
+int	is_next_line_map(char *current_line, t_data *data)
 {
 	int i;
 
@@ -13,16 +13,23 @@ bool	is_next_line_map(char *current_line, t_data *data)
 		i++;
 	if ((current_line[i] == '\0' || current_line[i] == '\n'))
 	{
-		data->map.map_save[data->map.line] = ft_strdup(current_line);
+		data->map.map_save = malloc(sizeof(char *) * 2);
 		if (!data->map.map_save)
-			return (false);
+			return (print_error_precise("allocation failed", "2\n"), 1);
+		data->map.map_save[data->map.line] = ft_strdup(current_line);
+							printf("map_save[%d] = %s\n", data->map.line, data->map.map_save[data->map.line]);
+
+		data->map.map_save[1] = NULL;
+		if (!data->map.map_save)
+			return (print_error_precise("allocation failed", "2\n"), 1);
 		data->map.line = 1;
-		data->map.map_started = true;
-		return (true);
+		data->map.map_started = true ;
+		return (0);
 	}
 	else
 	{
-		print_error_precise("the first line of the map after identifiers should be only walls or space", current_line);
-		return (false);
+		print_error_precise("invalid first map line", current_line);
+		return (1);
 	}
 }
+
