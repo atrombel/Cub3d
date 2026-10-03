@@ -2,7 +2,6 @@
 #include "cub3D.h"
 #include "atrombel.h"
 
-
 int	map_line_valid_chars_skipper(char *current_line, int i)
 {
 	while ((current_line[i] == ' '

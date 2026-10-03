@@ -39,10 +39,7 @@ int	parser_map_check(t_data *data)
 		if (data->map.map_started == true)
 		{
 			if (map_storing(current_line, data) == 1)
-			{
-					printf("map stor false \n");// to remove
 				return (ft_gnl_flush(data->map.map_fd), free(current_line), 1);
-			}
 			if (data->map.map_ended == 1)
 			{
 					printf("map stor ture \n");// to remove

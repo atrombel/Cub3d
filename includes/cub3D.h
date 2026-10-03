@@ -34,9 +34,12 @@ typedef struct s_identifier
 	char	*ea_path;
 	bool	ea_check_status;
 	int		f[3];
-	int		f_check_status;
+	int		f_count;
+	bool	f_check_status;// a utilsie r comme pour le c eviter et tser les
 	int		c[3];
-	int		c_check_status;
+	int		c_count;
+	bool	c_check_status;
+
 } t_identifier;
 
 // line is the nuber of line from line 0 to line x of the mab

@@ -32,6 +32,9 @@ int		world_c_check(char *current_line, int i, t_data *data);
 int		store_identifier_path(char *current_line, int i, t_data *data, int mode);
 bool	if_all_identifier_check(t_data *data);
 int		is_next_line_map(char *current_line, t_data *data);
+int		color_storage_f(char *current_line, t_data *data, int i);
+int		color_storage_c(char *current_line, t_data *data, int i);
+
 
 //map storing + parsing map
 int	map_storing(char *current_line, t_data *data);
@@ -41,6 +44,7 @@ int	map_line_valid_chars_skipper(char *current_line, int i);
 void	print_error(char *msg);
 void	print_error_precise(char *msg1, char *msg2);
 int		print_error_return(char *msg, int value);
+void	print_error_mode(char *msg, int mode);
 
 
 // free functions
@@ -48,6 +52,7 @@ void	free_id(t_data *data);
 void	ft_gnl_flush(int fd);
 int		parser_cleanup_error(t_data *data, char *current_line);
 void	free_map_save(t_data *data);
+void	free_all(t_data *data);
 
 
 #endif
