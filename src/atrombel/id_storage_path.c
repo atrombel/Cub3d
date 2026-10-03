@@ -31,12 +31,7 @@ int	id_storage_path_utils(char *current_line, t_data *data, int mode)
 	return (0);
 }
 
-
-
-
-
-
-int	color_storage_path_utils(char *current_line, t_data *data, int i, int mode)
+int	id_color_storage_path_utils(char *current_line, t_data *data, int i, int mode)
 {
 	if (mode == 4)
 		return (color_storage_f(current_line, data, i));
@@ -70,7 +65,7 @@ int	id_storage_path(char *current_line, t_data *data, int i, int mode)
 		j = space_newline_skipper(current_line, i);
 		if (current_line[j] == '\0')
 			return (print_error_mode("invalid color missing\n", mode), 1);
-		return (color_storage_path_utils(current_line, data, i, mode));
+		return (id_color_storage_path_utils(current_line, data, i, mode));
 	}
 }
 

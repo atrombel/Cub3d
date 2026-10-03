@@ -22,7 +22,7 @@ int space_newline_skipper(char *current_line, int i)
 	return (i);
 }
 
-int	parser_map_check(t_data *data)
+int	parser_identifier_check(t_data *data)
 {
 	char	*current_line;
 	int		i;

@@ -54,3 +54,10 @@ void	free_map_save(t_data *data)
 	data->map.line = 0;
 }
 
+void	free_all(t_data *data)
+{
+	free_map_save(data);
+	free_id(data);
+	if (data->map.map_fd >= 0)
+		close(data->map.map_fd);
+}

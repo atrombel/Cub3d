@@ -17,8 +17,6 @@ int	is_next_line_map(char *current_line, t_data *data)
 		if (!data->map.map_save)
 			return (print_error_precise("allocation failed", "2\n"), 1);
 		data->map.map_save[data->map.line] = ft_strdup(current_line);
-							printf("map_save[%d] = %s\n", data->map.line, data->map.map_save[data->map.line]);
-
 		data->map.map_save[1] = NULL;
 		if (!data->map.map_save)
 			return (print_error_precise("allocation failed", "2\n"), 1);

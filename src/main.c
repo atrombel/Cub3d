@@ -17,7 +17,7 @@ void	debug_print_data(t_data *data)
 {
 	int	i;
 
-			printf("===============================================\n");
+	printf("===============================================\n");
 
 	printf("data address     : %p\n", (void *)data);
 	printf("no_path address  : %p\n", (void *)data->id.no_path);
@@ -71,14 +71,11 @@ int	main(int argc, char **argv)
 {
 	t_data data;
 
-	if (arguments_nbr_check(argc) == 1)
-		return (1);
 	ft_init(&data);
-	if (parser_main(&data, argv[1]) == 1)
+	if (parser_main(&data, argv[1], argc) == 1)
 		return (1);
 	debug_print_data(&data);
 	printf("=======================================================================================\n");// to remove
-
 	printf("end of execution\n");// to remove
 	free_all(&data);
 	return (0);

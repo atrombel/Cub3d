@@ -18,10 +18,10 @@ void	ft_init(t_data *data);
 
 //parsing
 int		arguments_nbr_check(int argc);
-int		parser_main(t_data *data, char *path_to_map);
-int		parser_map_file_type_check(char *path_to_map);
+int		parser_main(t_data *data, char *path_to_map, int argc);
+int		parser_file_type_check(char *path_to_map);
 int		parser_map_open_check(char *path_to_map, t_data *data);
-int		parser_map_check(t_data *data);
+int		parser_identifier_check(t_data *data);
 int		id_storage_path(char *current_line, t_data *data, int i, int mode);
 int		id_storage_path_utils(char *current_line, t_data *data, int mode);
 int		space_newline_skipper(char *current_line, int i);
@@ -37,8 +37,8 @@ int		color_storage_c(char *current_line, t_data *data, int i);
 
 
 //map storing + parsing map
-int	map_storing(char *current_line, t_data *data);
-int	map_line_valid_chars_skipper(char *current_line, int i);
+int		map_storing(char *current_line, t_data *data);
+int		map_line_valid_chars_skipper(char *current_line, int i);
 
 //error msg
 void	print_error(char *msg);

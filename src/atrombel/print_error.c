@@ -23,7 +23,6 @@ int	print_error_return(char *msg, int value)
 	return(value);
 }
 
-
 void	print_error_mode(char *msg, int mode)
 {
 	char	*id_name[6];

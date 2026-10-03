@@ -5,7 +5,7 @@ WE ./path_to_the_south_texture
 EA ./path_to_the_south_texture
 F    0  ,    2,     255
 C 225,  0,255
-WE ./path_to_the_south_texture
+
 
  1111111111111111111111
 10000000000000000000001
