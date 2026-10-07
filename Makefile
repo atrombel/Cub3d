@@ -12,6 +12,7 @@
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
+LDLIBS = -lXext -lX11
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -51,7 +52,8 @@ ATROMBEL_OBJS = $(addprefix $(ATROMBEL_OBJ_DIR)/, $(ATROMBEL_CFILES:.c=.o))
 ATROMBEL_NAME = atrombel
 
 
-CGASSER_CFILES =
+CGASSER_CFILES =	ft_game.c \
+					ft_game_init.c
 
 CGASSER_OBJS = $(addprefix $(CGASSER_OBJ_DIR)/, $(CGASSER_CFILES:.c=.o))
 CGASSER_NAME = cgasser
@@ -61,24 +63,32 @@ LIBFT_DIR = libft
 LIBFT_INC_DIR = $(LIBFT_DIR)/
 LIBFT = $(LIBFT_DIR)/libft.a
 
+MLX_LIB_DIR = minilibx-linux
+MLX_A = $(MLX_LIB_DIR)/libmlx.a
+MLX_LINUX_A = $(MLX_LIB_DIR)/libmlx_Linux.a
+MLX_A_ALL = $(MLX_A) $(MLX_LINUX_A)
+
 HFILES = cub3D.h atrombel.h cgasser.h
 
 NAME = cub3D
 
 all: $(NAME)
 
-$(NAME): $(OBJS) $(ATROMBEL_OBJS) $(CGASSER_OBJS) $(LIBFT)
-	$(CC) $(CFLAGS) $(OBJS) $(ATROMBEL_OBJS) $(CGASSER_OBJS) $(LIBFT) -o $@
+$(NAME): $(OBJS) $(ATROMBEL_OBJS) $(CGASSER_OBJS) $(LIBFT) $(MLX_A_ALL)
+	$(CC) $(CFLAGS) $(OBJS) $(ATROMBEL_OBJS) $(CGASSER_OBJS) $(LIBFT) $(MLX_A_ALL) $(LDLIBS) -o $@
 
 $(OBJ_DIR)/%.o: $(SRC_DIR)/%.c | $(OBJ_DIR)
 	mkdir -p $(dir $@)
-	$(CC) $(CFLAGS) -I $(INC_DIR) -I $(LIBFT_INC_DIR) -c $< -o $@
+	$(CC) $(CFLAGS) -I $(INC_DIR) -I $(LIBFT_INC_DIR) -I $(MLX_LIB_DIR) -c $< -o $@
 
 $(OBJ_DIR):
 	mkdir -p $(OBJ_DIR)
 
 $(LIBFT):
 	$(MAKE) -C $(LIBFT_DIR)
+
+$(MLX_A_ALL):
+	$(MAKE) -C $(MLX_LIB_DIR)
 
 clean:
 	rm -rf $(OBJ_DIR)

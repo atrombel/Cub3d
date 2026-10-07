@@ -6,12 +6,13 @@
 /*   By: atrombel <atrombel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 13:57:58 by atrombel          #+#    #+#             */
-/*   Updated: 2026/09/18 13:58:00 by atrombel         ###   ########.fr       */
+/*   Updated: 2026/10/05 16:56:21 by cgasser          ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cub3D.h"
 #include "atrombel.h"
+#include "cgasser.h"
 
 void	debug_print_data(t_data *data)
 {
@@ -77,6 +78,7 @@ int	main(int argc, char **argv)
 	debug_print_data(&data);
 	printf("=======================================================================================\n");// to remove
 	printf("end of execution\n");// to remove
+	ft_game(&data);
 	free_all(&data);
 	return (0);
 }
