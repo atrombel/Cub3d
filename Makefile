@@ -6,7 +6,7 @@
 #    By: atrombel <atrombel@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/09/18 13:53:16 by atrombel          #+#    #+#              #
-#    Updated: 2026/09/18 13:53:21 by atrombel         ###   ########.fr        #
+#    Updated: 2026/10/23 15:16:58 by cgasser          ###   ####lausanne.ch    #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,15 @@ ATROMBEL_NAME = atrombel
 
 
 CGASSER_CFILES =	ft_game.c \
-					ft_game_init.c
+					ft_game_init.c \
+					ft_kill_mlx.c \
+					ft_display_init.c \
+					ft_draw_map.c \
+					ft_map_dim.c \
+					ft_is_player.c \
+
+
+
 
 CGASSER_OBJS = $(addprefix $(CGASSER_OBJ_DIR)/, $(CGASSER_CFILES:.c=.o))
 CGASSER_NAME = cgasser
