@@ -11,8 +11,8 @@ int	world_no_check(char *current_line, int i, t_data *data)
 		return (1);
 	}
 	i += 3;
-			printf("no the current_line = %s", current_line);
-		printf("0 i = %d\n", i);
+			//printf("no the current_line = %s", current_line);
+			//printf("0 i = %d\n", i);
 
 	if (store_identifier_path(current_line, i, data, 0) == 1)
 		return (1);

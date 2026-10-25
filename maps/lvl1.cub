@@ -3,11 +3,11 @@ NO    ./path_to_the_south_texture
 SO ./path_to_the_south_texture
 WE ./path_to_the_south_texture
 EA ./path_to_the_south_texture
-F    0  ,    2,     255
+F    0  ,    2 ,     255
 C 225,  0,255
 
 
  1111111111111111111111
-10000000000000000000001
+100000000000000f00000001
 1000000000000000000111
 11111111111111111111

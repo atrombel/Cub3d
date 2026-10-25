@@ -21,7 +21,7 @@ int	parser_main(t_data *data, char *path_to_map, int argc)
 {
 	if (arguments_nbr_check(argc) == 1)
 		return (1);
-	 if (parser_file_type_check(path_to_map))
+	if (parser_file_type_check(path_to_map))
 		return (1);
 	if (parser_map_open_check(path_to_map, data))
 		return (1);
