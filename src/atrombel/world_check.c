@@ -4,24 +4,35 @@
 
 int	world_no_check(char *current_line, int i, t_data *data)
 {
+	int	tmp_fd;
 
 	if (data->id.no_check_status == true)
 	{
-		print_error_precise("should be only one occurence of NO", current_line + i);
+		print_error_precise("should be only one occurence of NO\n", current_line + i);
 		return (1);
 	}
 	i += 3;
-			//printf("no the current_line = %s", current_line);
-			//printf("0 i = %d\n", i);
-
 	if (store_identifier_path(current_line, i, data, 0) == 1)
 		return (1);
+	if (ft_reverse_strncmp_verif(data->id.no_path, ".xpm") != 0)
+	{
+		print_error("texture NO file format invalid, must be .xpm\n");
+		return (1);
+	}
+	tmp_fd = open(data->id.no_path, O_RDONLY);
+	if (tmp_fd < 0)
+	{
+		print_error_precise("invalid NO texture path", current_line + i);
+		return (1);
+	}
+	close(tmp_fd);
 	data->id.no_check_status = true;
 	return (0);
 }
 
 int	world_so_check(char *current_line, int i, t_data *data)
 {
+	int	tmp_fd;
 
 	if (data->id.so_check_status == true)
 	{
@@ -31,11 +42,25 @@ int	world_so_check(char *current_line, int i, t_data *data)
 	i += 3;
 	if (store_identifier_path(current_line, i, data, 1) == 1)
 		return (1);
+	if (ft_reverse_strncmp_verif(data->id.so_path, ".xpm") != 0)
+	{
+		print_error("texture SO file format invalid, must be .xpm\n");
+		return (1);
+	}
+	tmp_fd = open(data->id.so_path, O_RDONLY);
+	if (tmp_fd < 0)
+	{
+		print_error_precise("invalid SO texture path", current_line + i);
+		return (1);
+	}
+	close(tmp_fd);
 	data->id.so_check_status = true;
 	return (0);
 }
 int	world_we_check(char *current_line, int i, t_data *data)
 {
+	int	tmp_fd;
+
 	if (data->id.we_check_status == true)
 	{
 		print_error_precise("should be only one occurence of WE", current_line + i);
@@ -44,12 +69,26 @@ int	world_we_check(char *current_line, int i, t_data *data)
 	i += 3;
 	if (store_identifier_path(current_line, i, data, 2) == 1)
 		return (1);
+	if (ft_reverse_strncmp_verif(data->id.we_path, ".xpm") != 0)
+	{
+		print_error("texture WE file format invalid, must be .xpm\n");
+		return (1);
+	}
+	tmp_fd = open(data->id.we_path, O_RDONLY);
+	if (tmp_fd < 0)
+	{
+		print_error_precise("invalid WE texture path", current_line + i);
+		return (1);
+	}
+	close(tmp_fd);
 	data->id.we_check_status = true;
 	return (0);
 }
 
 int	world_ea_check(char *current_line, int i, t_data *data)
 {
+	int	tmp_fd;
+
 	if (data->id.ea_check_status == true)
 	{
 		print_error_precise("should be only one occurence of EA", current_line + i);
@@ -58,6 +97,18 @@ int	world_ea_check(char *current_line, int i, t_data *data)
 	i += 3;
 	if (store_identifier_path(current_line, i, data, 3) == 1)
 		return (1);
+	if (ft_reverse_strncmp_verif(data->id.ea_path, ".xpm") != 0)
+	{
+		print_error("texture EA file format invalid, must be .xpm\n");
+		return (1);
+	}
+	tmp_fd = open(data->id.ea_path, O_RDONLY);
+	if (tmp_fd < 0)
+	{
+		print_error_precise("invalid EA texture path", current_line + i);
+		return (1);
+	}
+	close(tmp_fd);
 	data->id.ea_check_status = true;
 	return (0);
 }

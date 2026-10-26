@@ -34,6 +34,7 @@ bool	if_all_identifier_check(t_data *data);
 int		is_next_line_map(char *current_line, t_data *data);
 int		color_storage_f(char *current_line, t_data *data, int i);
 int		color_storage_c(char *current_line, t_data *data, int i);
+int		ft_reverse_strncmp_verif(char *s1, char *s2);
 
 
 //map storing + parsing map

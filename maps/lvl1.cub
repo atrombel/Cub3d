@@ -1,13 +1,14 @@
 
-NO    ./path_to_the_south_texture
-SO ./path_to_the_south_texture
-WE ./path_to_the_south_texture
-EA ./path_to_the_south_texture
-F    0  ,    2 ,     255
-C 225,  0,255
+NO ./texture/wall_pixelised_backroom.xpm
+SO ./texture/wall_pixelised_backroom.xpm
+WE ./texture/wall_pixelised_backroom.xpm
+EA ./texture/wall_pixelised_backroom.xpm
+F 2,25,99
+C 251 ,  10,255
 
 
  1111111111111111111111
-100000000000000f00000001
+10000000000000000000001
 1000000000000000000111
 11111111111111111111
+

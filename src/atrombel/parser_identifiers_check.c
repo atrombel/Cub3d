@@ -29,22 +29,14 @@ int	parser_identifier_check(t_data *data)
 
 	while ((current_line = get_next_line(data->map.map_fd)))
 	{
-			//printf("direcet current_line = %s\n", current_line);
 		if (!current_line && (data->map.ismap_stored == true))
-		{
-				//printf("debug test map XXXXXXXXXXXXXX\n");// to remove
 			return (ft_gnl_flush(data->map.map_fd), 0);
-		}
 		if (data->map.map_started == true)
 		{
 			if (map_storing(current_line, data) == 1)
 				return (ft_gnl_flush(data->map.map_fd), parser_cleanup_error(data, current_line), 1);
 			if (data->map.map_ended == 1)
-			{
-					//printf("map stor ture \n");// to remove
-					//printf("current_line = %s\n", current_line);
 				return (ft_gnl_flush(data->map.map_fd), free(current_line), 0);
-			}
 			free(current_line);
 			continue ;
 		}
