@@ -73,6 +73,8 @@ int	main(int argc, char **argv)
 	ft_init(&data);
 	if (parser_main(&data, argv[1], argc) == 1)
 		return (1);
+
+
 	debug_print_data(&data);
 	printf("=======================================================================================\n");// to remove
 	printf("end of execution\n");// to remove

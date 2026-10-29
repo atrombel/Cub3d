@@ -27,6 +27,8 @@ int	parser_main(t_data *data, char *path_to_map, int argc)
 		return (1);
 	if (parser_identifier_check(data))
 		return (1);
+	if (parser_map_check(data))
+		return (1);
 	//etc
 	return (0);
 }

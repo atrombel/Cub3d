@@ -50,8 +50,10 @@ typedef struct s_map
 	bool	map_started;
 	bool	map_ended;
 	bool	ismap_stored;
+	bool	player_defined;
 	int		map_fd;// TO CLOSE
 }	t_map;
+
 
 typedef struct s_data
 {

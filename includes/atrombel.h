@@ -55,5 +55,8 @@ int		parser_cleanup_error(t_data *data, char *current_line);
 void	free_map_save(t_data *data);
 void	free_all(t_data *data);
 
+//map parsing
+int	parser_map_check(t_data *data);
+int	parser_map_player_check(char *line, t_data *data);
 
 #endif
