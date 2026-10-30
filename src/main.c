@@ -66,6 +66,10 @@ void	debug_print_data(t_data *data)
 	printf("map_save[%d] = NULL\n", i);
 	printf("player_x = %d\n", data->map.player_x);
 	printf("player_y = %d\n",data->map.player_y);
+		data->map.map_y_max = i;
+	printf("data->map.map_y_max =  %d\n",data->map.map_y_max);
+	printf("data->map.map_x_max =  %d\n",data->map.map_x_max);
+
 
 }
 
@@ -75,12 +79,10 @@ int	main(int argc, char **argv)
 
 	ft_init(&data);
 	if (parser_main(&data, argv[1], argc) == 1)
-		return (1);
-
-
+		return (free_all(&data), 1);
 	debug_print_data(&data);
 	printf("=======================================================================================\n");// to remove
-	printf("end of execution\n");// to remove
+	printf("end of execution, MAP VALID\n");// to remove
 	free_all(&data);
 	return (0);
 }

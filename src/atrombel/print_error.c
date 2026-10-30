@@ -14,6 +14,7 @@ void	print_error_precise(char *msg1, char *msg2)
 	ft_putstr_fd(msg1, 2);
 	ft_putstr_fd(": ",2);
 	ft_putstr_fd(msg2, 2);
+	write(2,"\n", 1);
 }
 
 int	print_error_return(char *msg, int value)

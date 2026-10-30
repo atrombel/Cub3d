@@ -21,14 +21,13 @@ int	parser_main(t_data *data, char *path_to_map, int argc)
 {
 	if (arguments_nbr_check(argc) == 1)
 		return (1);
-	if (parser_file_type_check(path_to_map))
+	if (parser_file_type_check(path_to_map) == 1)
 		return (1);
-	if (parser_map_open_check(path_to_map, data))
+	if (parser_map_open_check(path_to_map, data) == 1)
 		return (1);
-	if (parser_identifier_check(data))
+	if (parser_identifier_check(data) == 1)
 		return (1);
-	if (parser_map_check(data))
+	if (parser_map_check(data) == 1)
 		return (1);
-	//etc
 	return (0);
 }

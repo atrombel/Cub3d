@@ -82,7 +82,7 @@ int map_storing(char *current_line, t_data *data)
 	}
 	else
 	{
-		print_error_precise("invalid map syntax", current_line);
+		print_error_precise("invalid map syntax at line", current_line);
 		return (free_map_save(data), 1);
 	}
 	return (0);

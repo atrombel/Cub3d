@@ -22,6 +22,20 @@ int space_newline_skipper(char *current_line, int i)
 	return (i);
 }
 
+char *map_newline_remover(char	*current_line)
+{
+	int	i;
+
+	i = 0;
+	while (current_line[i])
+	{
+		if (current_line[i] == '\n' && current_line[i + 1] == '\0')
+			current_line[i] = '\0';
+		i++;
+	}
+	return (current_line);
+}
+
 int	parser_identifier_check(t_data *data)
 {
 	char	*current_line;
@@ -29,8 +43,7 @@ int	parser_identifier_check(t_data *data)
 
 	while ((current_line = get_next_line(data->map.map_fd)))
 	{
-		if (!current_line && (data->map.ismap_stored == true))
-			return (ft_gnl_flush(data->map.map_fd), 0);
+		current_line = map_newline_remover(current_line);
 		if (data->map.map_started == true)
 		{
 			if (map_storing(current_line, data) == 1)
