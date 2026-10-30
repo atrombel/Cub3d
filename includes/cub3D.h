@@ -51,6 +51,8 @@ typedef struct s_map
 	bool	map_ended;
 	bool	ismap_stored;
 	bool	player_defined;
+	int		player_x;
+	int		player_y;
 	int		map_fd;// TO CLOSE
 }	t_map;
 

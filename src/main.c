@@ -64,6 +64,9 @@ void	debug_print_data(t_data *data)
 		i++;
 	}
 	printf("map_save[%d] = NULL\n", i);
+	printf("player_x = %d\n", data->map.player_x);
+	printf("player_y = %d\n",data->map.player_y);
+
 }
 
 int	main(int argc, char **argv)
