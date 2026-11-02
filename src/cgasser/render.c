@@ -6,21 +6,22 @@
 /*   By: cgasser <cgasser@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/11/02 09:38:16 by cgasser           #+#    #+#             */
-/*   Updated: 2026/11/02 10:37:23 by cgasser          ###   ####lausanne.ch   */
+/*   Updated: 2026/11/02 12:13:31 by cgasser          ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cgasser.h"
 
-void	clear_Frame(t_data *data);
+int	ft_draw_map(t_data *data);
 void	draw_player(t_data *data);
 void	draw_direction(t_data *data);
 
 void	render_frame(t_data *data)
 {
-	clear_frame(data);
+	ft_memset(data->display.frame.addr, 0,
+		data->display.frame.sl * WIN_HEIGHT);
 
-	draw_map(data);
+	ft_draw_map(data);
 	draw_player(data);
 	draw_direction(data);
 
@@ -31,10 +32,25 @@ void	render_frame(t_data *data)
 		0, 0);
 }
 
-void	clear_Frame(t_data *data)
+int	ft_draw_map(t_data *data)
 {
-	ft_memeset(data->display.frame.addr, 0,
-		data->display.frame.sl * WIN_HEIGHT);
+	int	i;
+	int	j;
+
+	i = 0;
+	while (data->map.map_save[i])
+	{
+		j = 0;
+		while (data->map.map_save[i][j])
+		{
+			if (data->map.map_save[i][j] == '1')
+				if (ft_draw_wall(&data->display, i, j))
+					return (1);
+			j++;
+		}
+		i++;
+	}
+	return (0);
 }
 
 void	draw_player(t_data *data)
@@ -46,7 +62,7 @@ void	draw_player(t_data *data)
 	screen_y = (int)(data->player.y * data->display.scale);
 
 	ft_draw_circle(&data->display, screen_x, screen_y,
-		data->display.scale / 4);
+		data->display.scale / 8);
 }
 
 void	draw_direction(t_data *data)
@@ -60,9 +76,10 @@ void	draw_direction(t_data *data)
 	start_y = (int)(data->player.y * data->display.scale);
 
 	end_x = start_x
-		+ cos(data->player.angle) * DRECTION_LENGTH;
+		+ (int)(cos(data->player.angle) * DIRECTION_LENGTH);
 	end_y = start_y
-		+ cos(data->player.angle) * DRECTION_LENGTH;
-	return (ft_draw_line(&data->display.frame,
-		      start-x, start_y, end_x, end_y, YELLOW))
+		+ (int)(sin(data->player.angle) * DIRECTION_LENGTH);
+	ft_draw_line(&data->display.frame,
+		      start_x, start_y, end_x, end_y, YELLOW);
+	return ;
 }

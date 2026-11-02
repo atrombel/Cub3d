@@ -12,7 +12,7 @@
 
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-LDLIBS = -lXext -lX11
+LDLIBS = -lXext -lX11 -lm
 
 SRC_DIR = src
 OBJ_DIR = obj
@@ -53,12 +53,15 @@ ATROMBEL_NAME = atrombel
 
 
 CGASSER_CFILES =	ft_game.c \
-					ft_game_init.c \
-					ft_kill_mlx.c \
-					ft_display_init.c \
-					ft_draw_map.c \
-					ft_map_dim.c \
-					ft_is_player.c \
+					init.c \
+					init2.c \
+					hooks.c \
+					movement.c \
+					collision.c \
+					draw_shapes.c \
+					render.c \
+					utils.c \
+					cleanup.c \
 
 
 

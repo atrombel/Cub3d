@@ -12,11 +12,9 @@
 
 #include "cgasser.h"
 
-int	ft_kill_mlx(t_display *display)
+int	ft_kill_mlx(t_data *data)
 {
-	printf("mlx cleaning...\n");
-	mlx_destroy_window(display->mlx_ptr, display->win_ptr);
-	mlx_destroy_display(display->mlx_ptr);
-	printf("mlx cleaned\n");
+	mlx_destroy_window(data->display.mlx_ptr, data->display.win_ptr);
+	mlx_destroy_display(data->display.mlx_ptr);
 	return (0);
 }

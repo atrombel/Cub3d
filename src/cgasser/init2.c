@@ -68,13 +68,15 @@ int	get_player_pos(t_data *data)
 		j = 0;
 		while (data->map.map_save[i][j])
 		{
-			if (is_player(data->map.map_save[i][j]))
+			if (ft_is_player(data->map.map_save[i][j]))
 			{
-				data->player.dim[0] = j;
-				data->player.dim[1] = i;
+				data->player.x = j;
+				data->player.y = i;
 				return (0);
 			}
+			j++;
 		}
+		i++;
 	}
 	return (1);
 }
@@ -84,15 +86,15 @@ int	get_player_angle(t_data *data)
 	int	x;
 	int	y;
 	
-	x = data->player.dim[0];
-	x = data->player.dim[1];
-	if (data->map.map_save[y][x] == 'N')
-		return (data->player.angle = 0, 0);
+	x = data->player.x;
+	y = data->player.y;
 	if (data->map.map_save[y][x] == 'E')
-		return (data->player.angle = M_PI / 2, 0)
-	if (data->map.map_save[y][x] == 'S')
+		return (data->player.angle = 0, 0);
+	else if (data->map.map_save[y][x] == 'S')
+		return (data->player.angle = M_PI / 2, 0);
+	else if (data->map.map_save[y][x] == 'W')
 		return (data->player.angle = M_PI, 0);
-	if (data->map.map_save[y][x] == 'W')
+	else if (data->map.map_save[y][x] == 'N')
 		return (data->player.angle = M_PI * 3 / 2, 0);
 	return (1);
 }

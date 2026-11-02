@@ -28,10 +28,12 @@
 # define WIN_WIDTH 1280
 # define WIN_HEIGHT 720
 
-# define PLAYER_SPEED 0.004
-# define PLAYER_ROT_SPEED 0.002
+# define PLAYER_SPEED 4.0
+# define PLAYER_ROT_SPEED 2.0
 
-# define DIRECTION_LENGTH 3
+# define DIRECTION_LENGTH 100
+
+# define PLAYER_RADIUS 0.125
 
 //attention to free les char * liked to " au no ea we so "
 // est ce que je dois stocker les fd des path ?
@@ -64,7 +66,6 @@ typedef struct s_map
 	bool	map_ended;
 	bool	ismap_stored;
 	int		map_fd;// TO CLOSE
-	t_img	background;//map image with the walls only
 }	t_map;
 
 //mlx image settings
@@ -91,10 +92,11 @@ typedef struct s_display
 //player settings
 typedef struct s_player
 {
-	double	pos[2];//[x, y]
+	double	x;//position in x
+	double	y;//position in y
 	double	angle;//player angle in radian: 0° is east and 90° (pi/2) is south
-	double	move_speed;
-	double	rot_speed;
+	double	move_speed;//player speed
+	double	rot_speed;//player rotation speed
 
 }	t_player;
 
@@ -110,6 +112,13 @@ typedef struct s_keys
 	int		esc;
 }	t_keys;
 
+//keep track of time between frame, in second
+typedef struct s_time
+{
+	double	delta_time;
+	double	last_time;
+}	t_time;
+
 typedef struct s_data
 {
 	t_identifier	id;
@@ -117,8 +126,7 @@ typedef struct s_data
 	t_display		display;
 	t_player		player;
 	t_keys			keys;
-	double			delta_time;
+	t_time			time;
 }	t_data;
-
 
 #endif

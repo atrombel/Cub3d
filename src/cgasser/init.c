@@ -23,8 +23,9 @@ int	ft_game_init(t_data *data)
 		return (1);
 	if (ft_player_init(data))
 		return (1);
-	ft_memset(&data->keys, 0, sizeof(t_keys));
-	ft_draw_map(data);
+	ft_memset(&data->keys, 0, sizeof(struct s_keys));
+	data->time.last_time = get_time();
+	render_frame(data);
 	return (0);
 
 }
