@@ -6,7 +6,7 @@
 /*   By: atrombel <atrombel@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/09/18 13:54:50 by atrombel          #+#    #+#             */
-/*   Updated: 2026/10/22 16:20:44 by cgasser          ###   ####lausanne.ch   */
+/*   Updated: 2026/10/30 09:06:38 by cgasser          ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,8 @@
 
 # define PLAYER_SPEED 0.004
 # define PLAYER_ROT_SPEED 0.002
+
+# define DIRECTION_LENGTH 3
 
 //attention to free les char * liked to " au no ea we so "
 // est ce que je dois stocker les fd des path ?
@@ -62,6 +64,7 @@ typedef struct s_map
 	bool	map_ended;
 	bool	ismap_stored;
 	int		map_fd;// TO CLOSE
+	t_img	background;//map image with the walls only
 }	t_map;
 
 //mlx image settings
@@ -89,10 +92,23 @@ typedef struct s_display
 typedef struct s_player
 {
 	double	pos[2];//[x, y]
-	double	angle;//player angle
-	float	speed_cos;//player speed in x
-	float	speed_sin;//player speed in y
+	double	angle;//player angle in radian: 0° is east and 90° (pi/2) is south
+	double	move_speed;
+	double	rot_speed;
+
 }	t_player;
+
+//keep in memory which keys are pressed or released (1 = pressed, 0 = released)
+typedef struct s_keys
+{
+	int		w;
+	int		a;
+	int		s;
+	int		d;
+	int		left;
+	int		right;
+	int		esc;
+}	t_keys;
 
 typedef struct s_data
 {
@@ -100,6 +116,8 @@ typedef struct s_data
 	t_map			map;
 	t_display		display;
 	t_player		player;
+	t_keys			keys;
+	double			delta_time;
 }	t_data;
 
 

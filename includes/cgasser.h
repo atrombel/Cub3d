@@ -23,4 +23,8 @@ int	ft_draw_map(t_data *data);
 int	ft_map_dim(t_map *map);
 int	ft_is_player(char c);;
 
+int	ft_key_press(int key, t_data *data);
+int	ft_key_release(int key, t_data *data);
+int	ft_loop_hook(t_data *data);
+
 #endif

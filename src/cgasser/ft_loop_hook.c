@@ -6,13 +6,8 @@
 /*   By: cgasser <cgasser@student.42lausanne.ch>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/10/17 13:38:08 by cgasser           #+#    #+#             */
-/*   Updated: 2026/10/17 15:26:20 by cgasser          ###   ####lausanne.ch   */
+/*   Updated: 2026/10/30 09:17:27 by cgasser          ###   ####lausanne.ch   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "cgasser.h"
-
-int	ft_loop_hook(t_data *data)
-{
-
-}
