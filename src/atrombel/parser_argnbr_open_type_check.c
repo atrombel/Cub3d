@@ -2,7 +2,7 @@
 #include "cub3D.h"
 #include "atrombel.h"
 
-int	ft_reverse_strncmp_cub_verif(char *s1, char *s2)
+int	ft_reverse_strncmp_verif(char *s1, char *s2)
 {
 	size_t	i;
 	int		j;
@@ -23,7 +23,7 @@ int	ft_reverse_strncmp_cub_verif(char *s1, char *s2)
 
 int	parser_file_type_check(char *path_to_map)
 {
-	if (ft_reverse_strncmp_cub_verif(path_to_map, ".cub") != 0)
+	if (ft_reverse_strncmp_verif(path_to_map, ".cub") != 0)
 	{
 		print_error("file format invalid, must be .cub\n");
 		return (1);

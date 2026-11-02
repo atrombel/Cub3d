@@ -49,8 +49,8 @@ int	position_is_valid(t_data *data, double x, double y)
 	map_y = (int)y;
 
 	if (map_x < 0 || map_y < 0
-		|| map_y >= data->map.dim[0]
-		|| map_x >= data->map.dim[1])
+		|| map_y >= data->map.map_x_max
+		|| map_x >= data->map.map_y_max)
 		return (0);
 	if (data->map.map_save[map_y][map_x] == '1')
 		return (0);

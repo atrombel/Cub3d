@@ -63,8 +63,8 @@ int	ft_get_scale(t_data *data)
 	int	scale_x;
 	int	scale_y;
 
-	scale_x = WIN_HEIGHT / data->map.dim[0];
-	scale_y = WIN_WIDTH / data->map.dim[1];
+	scale_x = WIN_HEIGHT / data->map.map_x_max;
+	scale_y = WIN_WIDTH / data->map.map_y_max;
 	if (scale_x < 1 || scale_y < 1)
 		return (1);
 	if (scale_x < scale_y)

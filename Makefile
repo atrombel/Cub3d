@@ -45,8 +45,9 @@ ATROMBEL_CFILES = 	parser_main.c \
 					is_next_line_map.c \
 					map_storing.c \
 					ft_init.c \
-					color_storage.c
-
+					color_storage.c\
+					parser_map_check.c\
+					flood_fill_map.c
 
 ATROMBEL_OBJS = $(addprefix $(ATROMBEL_OBJ_DIR)/, $(ATROMBEL_CFILES:.c=.o))
 ATROMBEL_NAME = atrombel

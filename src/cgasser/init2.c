@@ -41,8 +41,8 @@ int	ft_map_dim(t_map *map)
 	}
 	max_i++;
 	max_j++;
-	map->dim[0] = max_i;
-	map->dim[1] = max_j;
+	map->map_x_max = max_i;
+	map->map_y_max = max_j;
 	return (0);
 }
 

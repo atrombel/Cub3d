@@ -34,6 +34,7 @@ bool	if_all_identifier_check(t_data *data);
 int		is_next_line_map(char *current_line, t_data *data);
 int		color_storage_f(char *current_line, t_data *data, int i);
 int		color_storage_c(char *current_line, t_data *data, int i);
+int		ft_reverse_strncmp_verif(char *s1, char *s2);
 
 
 //map storing + parsing map
@@ -54,5 +55,9 @@ int		parser_cleanup_error(t_data *data, char *current_line);
 void	free_map_save(t_data *data);
 void	free_all(t_data *data);
 
+//map parsing
+int		parser_map_check(t_data *data);
+int		parser_map_player_check(char *line, t_data *data, int y);
+void	flood_fill_map(t_data *data, int x, int y, char **map);
 
 #endif

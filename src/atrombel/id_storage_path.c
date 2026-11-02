@@ -6,25 +6,25 @@ int	id_storage_path_utils(char *current_line, t_data *data, int mode)
 {
 	if (mode == 0)
 	{
-		data->id.no_path = ft_strdup(current_line);
+		data->id.no_path = ft_strdup(current_line + 3);
 		if (!data->id.no_path)
 			return(print_error_return("strdup, malloc failed in id_storage_path\n", 1));
 	}
 	if (mode == 1)
 	{
-		data->id.so_path = ft_strdup(current_line);
+		data->id.so_path = ft_strdup(current_line + 3);
 		if (!data->id.so_path)
 			return(print_error_return("strdup, malloc failed in id_storage_path\n", 1));
 	}
 	if (mode == 2)
 	{
-		data->id.we_path = ft_strdup(current_line);
+		data->id.we_path = ft_strdup(current_line + 3);
 		if (!data->id.we_path)
 			return(print_error_return("strdup, malloc failed in id_storage_path\n", 1));
 	}
 	if (mode == 3)
 	{
-		data->id.ea_path = ft_strdup(current_line);
+		data->id.ea_path = ft_strdup(current_line + 3);
 		if (!data->id.ea_path)
 			return(print_error_return("strdup, malloc failed in id_storage_path\n", 1));
 	}

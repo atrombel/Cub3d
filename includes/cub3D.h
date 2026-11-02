@@ -61,11 +61,17 @@ typedef struct s_map
 {
 	int		line;
 	char	**map_save;
-	int	dim[2];//[width, height]
+	int		map_x_max;//starting at 0
+	int		map_y_max;//starting at 0
+	int		player_x;
+	int		player_y;
+	int		map_fd;// TO CLOSE
 	bool	map_started;
 	bool	map_ended;
 	bool	ismap_stored;
-	int		map_fd;// TO CLOSE
+	bool	player_defined;
+	bool	map_flood_valid;
+
 }	t_map;
 
 //mlx image settings
