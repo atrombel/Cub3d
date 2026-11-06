@@ -1,12 +1,11 @@
-
 NO ./texture/wall_pixelised_backroom.xpm
 SO ./texture/wall_pixelised_backroom.xpm
 WE ./texture/wall_pixelised_backroom.xpm
 EA ./texture/wall_pixelised_backroom.xpm
-F 2,25,99
-C 251 ,  10,255
+F 2,25,67
+C 20,20,30
 
-11111
-10001
-10001
-11111
+1111111011
+1000000001
+100000W111
+11111111

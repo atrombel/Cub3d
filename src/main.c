@@ -83,7 +83,7 @@ int	main(int argc, char **argv)
 		return (free_all(&data), 1);
 	debug_print_data(&data);
 	printf("=======================================================================================\n");// to remove
-	ft_game(&data);
+	//ft_game(&data);
 	printf("end of execution, MAP VALID\n");// to remove
 	free_all(&data);
 	return (0);

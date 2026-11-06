@@ -22,16 +22,16 @@ int space_newline_skipper(char *current_line, int i)
 	return (i);
 }
 
-char *map_newline_remover(char	*current_line)
+char	*map_newline_remover(char *current_line)
 {
 	int	i;
 
-	i = 0;
-	while (current_line[i])
+	i = ft_strlen(current_line);
+	while (i > 0 && (current_line[i - 1] == '\n'
+			|| current_line[i - 1] == '\r'))
 	{
-		if (current_line[i] == '\n' && current_line[i + 1] == '\0')
-			current_line[i] = '\0';
-		i++;
+		current_line[i - 1] = '\0';
+		i--;
 	}
 	return (current_line);
 }
