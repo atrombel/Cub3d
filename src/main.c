@@ -81,8 +81,8 @@ int	main(int argc, char **argv)
 	ft_init(&data);
 	if (parser_main(&data, argv[1], argc) == 1)
 		return (free_all(&data), 1);
-	debug_print_data(&data);
-	printf("=======================================================================================\n");// to remove
+	//debug_print_data(&data);
+	//printf("=======================================================================================\n");// to remove
 	//ft_game(&data);
 	printf("end of execution, MAP VALID\n");// to remove
 	free_all(&data);
